@@ -1,0 +1,89 @@
+
+----------------------------Functions Variables -------------------------------------
+
+Exercise 1. Write function GetPersonPenaltyPoints with parameters:
+ - identificationNumber, ex. "9001281173"
+ - penalty points - array with penalty points - for each penatly point there should be date - ex. [[new Date(), 1], [new Date(), 3]]
+ - age - ex. 29
+ - other optional arguments - as many as user would like to have - ex. "Info", 2, true
+
+ Function should build and return such a object:
+    {
+        message: "9001281173 has less than 26. Points: 10",     - use "more" instead of less if age >=26
+        points: 10,                                             - create arrow function which will summarize points. 
+                                                                  Add only point which has same year as current one
+        identificationNumber: identificationNumber,
+        firstArg: first,                                        - first element of other arguments
+        additional: [...rest]                                   - rest of elements from other arguments
+    }
+
+Function should have declared return type
+
+
+
+----------------------------Classes Interfaces -------------------------------------
+
+Exercise 1: 
+    1.Extend User class with
+        - extendUserObject(obj) method where 
+            - obj has to contain at least {name: string} and other string properties, for example {name: string, lastName: string, firstName: string, ...}
+            - must return typed object  {age: string, name: string, lastName: string, firstName: string, ...}
+                - name and other string properties comes from obj parameter
+                - age is taken from age property and mapped to string
+
+
+    2. Create ObjectWithAge abstract class where
+        - User should extends ObjectWithAge 
+        - declaring constructor for User
+        - declaring abstract method getAgeInfo for user
+        - User class should extend ObjectWithAge
+
+
+Exercise 2: Implement list object for string arrays
+    - should have methods:
+        - add - to add new list element
+        - remove - to remove list element by value, so for example remove("Value")
+        - first - get first element of list
+        - getAll - get all list elements
+    - length accesor to get easily length of list, example myList.length
+    - it should be possible to easily create new list instance from existing instance, 
+        for example let listNextInstance = new MyList(list);
+
+
+
+----------------------------Generics & Enums -------------------------------------
+
+Exercise 1: Extend list:
+    - make it generic so it will accept all types
+    - add method addMultiple, example - list.addMultiple('Value1', 'Value2', ...) will add new elements to list: 'Value1', 'Value2', ...
+    - implement where method, example list.where(x=>x.indexOf('3') > 0) will return only element with "3" inside
+    - add operation method which can perform both add/remove, example list.operation({operation_type}, "NewElement")
+
+
+
+----------------------------Types deeper & Symbols -------------------------------------
+
+Exercise 1: Extend list:
+    - extend "operation" metod to handle also first() and getAll() operations;
+    - add "isNumber" method which will verify if our MyList elements are number
+    - modify "add" method to insert null where there is undefined parameter
+
+
+Exercise 2: Create Tree handler:
+    - first define Tree type with value and child declaration. Sample usage- let family: Tree<string> = {value: "John", child: {value: "Henry", child: null}}
+    - create Tree class with
+        - constructor (private tree: Tree<T> = null)
+        - 'pushElement' method to add next child / first element - each element can have one child and one parent only
+        - 'getTree' which will return tree
+        - 'isFirstElementPropertyNull' method checking if any of first tree element chosen properties is null. 
+            Sample usage - treeBuilder.isFirstElementPropertyNull("value", "child", ...)
+
+
+Exercise 3: Extend Tree handler:
+    - push element shouldn't accept boolean value
+    - manage to pass all tests
+
+
+
+---------------------------- Decorators -------------------------------------
+Exercise 1: Implement Route, HttpGet and HttpPost decorators to handle proper url and request type

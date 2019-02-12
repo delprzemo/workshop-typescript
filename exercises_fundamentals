@@ -1,0 +1,83 @@
+
+----------------------------Functions Variables -------------------------------------
+
+Exercise 1. Write function GetPersonPenaltyPoints with parameters:
+ - identificationNumber, ex. "9001281173"
+ - penalty points - array with penalty points - ex. [10, 2, 4]
+ - age - ex. 29
+ - other optional arguments - as many as user would like to have - ex. "Info", 2, true
+
+ Function should return such a object:
+    {
+        message: "9001281173 has less than 26. Points: 10",     - use "more" instead of less if age >=26
+        points: 10,                                             - create arrow function which will summarize points
+        identificationNumber: identificationNumber,
+        additional: [...rest]                                   - elements from other arguments
+    }
+
+Function should have declared return type
+
+
+
+
+
+
+----------------------------Classes Interfaces -------------------------------------
+
+Exercise 1: 
+    1.Create User class with
+        - three properties: 
+            - public isTestUser: boolean. Default value is false
+            - static type: string  with value "General User"
+            - protected age : number
+        - constructor with age parameter which set age property
+        - getAgeInfo (limitAge: number)
+            - it returns string type
+            - default value for limitAge is 26
+            - if limitAge > age then return 'User has less than {limitAge}'
+            - if limitAge <= age then return 'User has more than {limitAge}'
+        - extendUserObject(obj) method where obj that has to contain {name: string, lastName: string}.  LastName should be optional
+            - must return typed object  {age: number, name: string, lastName: string}
+            - name and last names comes from obj parameter whereas age is taken from property age
+
+    2. TestUser Class which extends User
+        - constructor with (age: number) parameter which set age property from User class
+        - inhereded isTestUser should be true
+        - getAgeInfo (limitAge: number) method which results are same as in User class but with additional info "But this is test user". 
+            For example "User has less than 26. But this is test user"
+        
+    3. ObjectWithAge abstract class where
+        - User class should extends ObjectWithAge class
+        - declaring constructor for User
+        - declaring abstract method getAgeInfo for user
+
+    4. Use interfaces and inherence where possible
+    
+
+Exercise 2: Implement list handler for string arrays
+    - should have methods:
+        - add - to add new list element
+        - remove - to remove list element by value, so for example remove("Value")
+        - first - get first element of list
+        - getAll - get all list elements
+    - length accesor to get easily length of list, example myList.length
+    - it should be possible to easily create new list instance from existing instance, 
+        for example let listNextInstance = new MyList(list);
+
+
+
+
+
+
+----------------------------Generics -------------------------------------
+
+Exercise 1: Extend list object
+- manage list to be generic - MyList<type>
+- add operation method which can perform both add/remove, example list.operation({operation_type}, "Element")
+
+
+---------------------------- Modules -------------------------------------
+
+Exercise 1: 
+- Move MyList class to another file and import it as "List" in exercises/modules/modules.spec.ts (import only List)
+- Move GetPersonPenaltyPoints to another file and import it in exercises/modules/modules.spec.ts

@@ -1,0 +1,51 @@
+import { expect } from 'chai';
+
+
+
+describe('Interfaces and classes - deeper', () => {
+
+    it('Exercise 1', () => {
+
+        let user1 = new User(20);
+        let user2 = new User(28);
+
+        expect(user1.getAgeInfo(22)).to.equal("User has less than 22");
+        expect(user2.getAgeInfo()).to.equal("User has more than 26");
+
+        expect(user1.extendUserObject({name: "John"}).age).to.equal('20');
+        expect(user1.extendUserObject({name: "John"}).name).to.equal("John");
+        expect(user1.extendUserObject({name: "John", lastName: 'Kowalski'}).lastName).to.equal("Kowalski");
+        expect(user1.extendUserObject({name: "John", lastName: 'Kowalski', title: 'mgr'}).title).to.equal("mgr");
+    });
+})
+
+// Exercise
+abstract class ObjectWithAge {
+    constructor(protected age: number) { }
+    abstract getAgeInfo(limitAge: number): string 
+}
+
+interface ILimitAge {
+    name: string,
+    [propName: string]: string
+}
+
+interface IExtendedUserObject extends ILimitAge {
+    age: string;
+    [propName: string]: string
+}
+
+class User extends ObjectWithAge {
+    constructor(age: number) {
+        super(age);
+    }
+
+    getAgeInfo(limitAge: number = 26): string {
+        return `User has ${this.age >= limitAge ? 'more' : 'less'} than ${limitAge}`;
+    }
+
+    // Exercise
+    extendUserObject(obj: ILimitAge): IExtendedUserObject {
+        return {age: this.age.toString(), ...obj}
+    }
+}

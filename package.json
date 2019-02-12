@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "name": "test-jasmine-typescript",
+  "version": "2.0.0",
+  "scripts": {
+    "clear:all": "rm -rf node_modules/ npm-debug.log",
+    "pretest": "cls",
+    "test": "npm run mocha --recursive src/**/*.spec.ts",
+    "mocha": "mocha -r ts-node/register",
+    "prettier:base": "prettier --parser typescript --single-quote",
+    "prettier:check": "npm run prettier:base -- --list-different \"src/**/*.{ts,tsx}\"",
+    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\""
+  },
+  "devDependencies": {
+    "@types/chai": "4.0.4",
+    "@types/jasmine": "~2.8.8",
+    "@types/mocha": "2.2.43",
+    "@types/node": "^9.4.6",
+    "chai": "4.1.2",
+    "jasmine": "^3.1.0",
+    "jasmine-node": "^1.16.2",
+    "mocha": "3.5.3",
+    "prettier": "^1.16.1",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.12.1",
+    "typescript": "^3.2.4"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delprzemo/typescript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/delprzemo/typescript/issues"
+  },
+  "homepage": "https://github.com/delprzemo/typescript#readme",
+  "description": ""
+}
