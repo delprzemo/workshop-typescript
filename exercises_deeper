@@ -24,19 +24,19 @@ Function should have declared return type
 ----------------------------Classes Interfaces -------------------------------------
 
 Exercise 1: 
-    1.Extend User class with
+    1. Create ObjectWithAge abstract class where
+        - User should extends ObjectWithAge 
+        - declaring constructor for User
+        - declaring abstract method getAgeInfo for user
+        - User class should extend ObjectWithAge
+
+    2.Extend User class with
         - extendUserObject(obj) method where 
             - obj has to contain at least {name: string} and other string properties, for example {name: string, lastName: string, firstName: string, ...}
             - must return typed object  {age: string, name: string, lastName: string, firstName: string, ...}
                 - name and other string properties comes from obj parameter
                 - age is taken from age property and mapped to string
 
-
-    2. Create ObjectWithAge abstract class where
-        - User should extends ObjectWithAge 
-        - declaring constructor for User
-        - declaring abstract method getAgeInfo for user
-        - User class should extend ObjectWithAge
 
 
 Exercise 2: Implement list object for string arrays
