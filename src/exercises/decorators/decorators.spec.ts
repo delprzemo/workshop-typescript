@@ -1,121 +1,100 @@
-import { expect } from 'chai';
+// import { expect } from 'chai';
 
 
-describe('Decorators', () => {
-    it('Exercise 1', () => {
-        let apiController = new ApiController();
-        let request: IRequest;
-        let header: IHeader;
-        header = {requestType: RequestType.Get};
+// describe('Decorators', () => {
+//     it('Exercise 1', () => {
+//         let apiController = new ApiController();
+//         let request: IRequest;
+//         let header: IHeader;
+//         header = {requestType: RequestType.Get};
 
-        request = {header:  header, content: null, url: "api/users"};
-        expect(apiController.request(request)).to.deep.equal(["User1", "User2", "User3"]);
+//         request = {header:  header, content: null, url: "api/users"};
+//         expect(apiController.request(request)).to.deep.equal(["User1", "User2", "User3"]);
 
-        request.url = "api/users/1";
-        expect(apiController.request(request)).to.deep.equal("User1");
+//         request.url = "api/users/1";
+//         expect(apiController.request(request)).to.deep.equal("User1");
 
-        request.url = "api/users";
-        request.content = "User4";
-        request.header.requestType = RequestType.Post;
-        expect(apiController.request(request)).to.equal(true);
+//         request.url = "api/users";
+//         request.content = "User4";
+//         request.header.requestType = RequestType.Post;
+//         expect(apiController.request(request)).to.equal(true);
 
-        request.content = null;
-        request.header.requestType = RequestType.Get;
-        expect(apiController.request(request)).to.deep.equal(["User1", "User2", "User3", "User4"]);
-
-
-        request.url = "api/orders";
-        expect(apiController.request(request)).to.deep.equal(["Order1", "Order2"]);
-    });
+//         request.content = null;
+//         request.header.requestType = RequestType.Get;
+//         expect(apiController.request(request)).to.deep.equal(["User1", "User2", "User3", "User4"]);
 
 
-    interface IRequest {
-        header: IHeader;
-        content: any;
-        url: string;
-    }
+//         request.url = "api/orders";
+//         expect(apiController.request(request)).to.deep.equal(["Order1", "Order2"]);
+//     });
 
-    interface IHeader {
-        requestType: RequestType;
-    }
 
-    enum RequestType {
-        Get,
-        Post
-    }
+//     interface IRequest {
+//         header: IHeader;
+//         content: any;
+//         url: string;
+//     }
 
-    class ApiController {
-        request(request: IRequest): any {
-            let method = null;
-            let prototype = null;
-            let controllerTarget = null;
+//     interface IHeader {
+//         requestType: RequestType;
+//     }
 
-            for(let controller of RegisteredControllers) {
-                prototype = controller.prototype;
-                let names = Object.getOwnPropertyNames(prototype);
+//     enum RequestType {
+//         Get,
+//         Post
+//     }
 
-                for(let item of names) {
-                    if((controller.url + prototype[item].url) === request.url && prototype[item].requestType === request.header.requestType) {
-                        method = item;
-                        controllerTarget = prototype;
-                    }
-                }
-            }
+//     class ApiController {
+//         request(request: IRequest): any {
+//             let method = null;
+//             let prototype = null;
+//             let controllerTarget = null;
 
-            return controllerTarget[method](request.content);
-        }
-    }
+//             for(let controller of RegisteredControllers) {
+//                 prototype = controller.prototype;
+//                 let names = Object.getOwnPropertyNames(prototype);
 
-    const RegisteredControllers: any[] = []
-    let users = ["User1", "User2", "User3"];
+//                 for(let item of names) {
+//                     if((controller.url + prototype[item].url) === request.url && prototype[item].requestType === request.header.requestType) {
+//                         method = item;
+//                         controllerTarget = prototype;
+//                     }
+//                 }
+//             }
 
-    @Route("api/users")
-    class UserController extends ApiController {
+//             return controllerTarget[method](request.content);
+//         }
+//     }
 
-        @HttpGet("")
-        getAll(par: any): Array<any> {
-            return users;
-        }
+//     const RegisteredControllers: any[] = []
+//     let users = ["User1", "User2", "User3"];
 
-        @HttpGet("/1")
-        getSingle(par: any): any {
-            return users[0];
-        }
+//     @Route("api/users")
+//     class UserController extends ApiController {
 
-        @HttpPost("")
-        create(user: string): boolean {
-            users.push(user);
-            return true;
-        }
-    }
+//         @HttpGet("")
+//         getAll(par: any): Array<any> {
+//             return users;
+//         }
 
-    @Route("api/orders")
-    class OrderController extends ApiController {
+//         @HttpGet("/1")
+//         getSingle(par: any): any {
+//             return users[0];
+//         }
 
-        @HttpGet("")
-        getAll(par: any): Array<any> {
-            return ["Order1", "Order2"];
-        }
-    }
+//         @HttpPost("")
+//         create(user: string): boolean {
+//             users.push(user);
+//             return true;
+//         }
+//     }
 
-    function Route(url: string) {
-        return function (target: any) {
-            target.url = url;
-            RegisteredControllers.push(target);
-        };
-    }
+//     @Route("api/orders")
+//     class OrderController extends ApiController {
 
-    function HttpGet(url: string) {
-        return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-            target[propertyKey].url = url;
-            target[propertyKey].requestType = RequestType.Get;
-        };
-    }
-
-    function HttpPost(url: string) {
-        return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-            target[propertyKey].url = url;
-            target[propertyKey].requestType = RequestType.Post;
-        };
-    }
-})
+//         @HttpGet("")
+//         getAll(par: any): Array<any> {
+//             return ["Order1", "Order2"];
+//         }
+//     }
+// })

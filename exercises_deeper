@@ -9,7 +9,7 @@ Exercise 1. Write function GetPersonPenaltyPoints with parameters:
 
  Function should build and return such a object:
     {
-        message: "9001281173 has less than 26. Points: 10",     - use "more" instead of less if age >=26
+        message: "9001281173 has less than 26. Points: 10",     - use "more" instead of "less" if age >=26
         points: 10,                                             - create arrow function which will summarize points. 
                                                                   Add only point which has same year as current one
         identificationNumber: identificationNumber,
@@ -24,18 +24,19 @@ Function should have declared return type
 ----------------------------Classes Interfaces -------------------------------------
 
 Exercise 1: 
-    1. Create ObjectWithAge abstract class where
-        - User should extends ObjectWithAge 
-        - declaring constructor for User
-        - declaring abstract method getAgeInfo for user
-        - User class should extend ObjectWithAge
 
-    2.Extend User class with
+    1.Extend User class with
         - extendUserObject(obj) method where 
             - obj has to contain at least {name: string} and other string properties, for example {name: string, lastName: string, firstName: string, ...}
             - must return typed object  {age: string, name: string, lastName: string, firstName: string, ...}
                 - name and other string properties comes from obj parameter
                 - age is taken from age property and mapped to string
+    2. Create ObjectWithAge abstract class where
+        - User should extends ObjectWithAge 
+        - declaring constructor for User
+        - declaring abstract method getAgeInfo for user
+        - User class should extend ObjectWithAge
+
 
 
 
@@ -83,6 +84,12 @@ Exercise 3: Extend Tree handler:
     - push element shouldn't accept boolean value
     - manage to pass all tests
 
+
+----------------------------- Modules -----------------------------
+
+Exercise 1: 
+- Move MyList class to another file and import it as "List" in exercises/modules/modules.spec.ts (import only List)
+- Move GetPersonPenaltyPoints to another file and import it in exercises/modules/modules.spec.ts
 
 
 ---------------------------- Decorators -------------------------------------

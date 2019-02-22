@@ -41,7 +41,6 @@ describe('Generics - classes, types, constraints', () => {
     // type K1 = keyof Person; // "name" | "age" | "location"
     // type K2 = keyof Person[];  // "length" | "push" | "pop" | "concat" |
 
-    // // Advanced
     // it('Using Type Parameters in Generic Constraints', () => {
 
     //     /*Exercise - create getProperty function that will get value by property - not allowing type non-existing properties*/

@@ -70,7 +70,6 @@ describe('Variables var, let, const', () => {
     //     expect(f()).to.equal(/*exercise*/);
     // });
 
-    //  // Intermediate
     // it('let-scoping iteration', () => {
     //     function f() {
     //         for(let i = 0; i < 10; i++) {

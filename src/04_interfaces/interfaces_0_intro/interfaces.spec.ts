@@ -2,7 +2,6 @@ import { expect } from 'chai';
 
 describe('Interfaces - introduction', () => {
 
-    // // Basic
     // it('Required object parameter', () => {
 
     //     function getLabel(labelledObj: { label: string }) {
@@ -14,7 +13,6 @@ describe('Interfaces - introduction', () => {
     //     expect(getLabel(myObj)).to.equal('test');
     // });
 
-    // // Basic
     // it('Required object parameter with interface', () => {
 
     //     /*Exercise - create IMyObject interface that will have same result as above*/
@@ -28,7 +26,6 @@ describe('Interfaces - introduction', () => {
     //     expect(getLabel(myObj)).to.equal('test');
     // });
 
-    // // Basic
     // it('Required object parameter with interface - with function', () => {
 
     //     /*Exercise - implement missing things here*/
@@ -45,7 +42,6 @@ describe('Interfaces - introduction', () => {
     //     expect(getLabel(myObj)).to.equal('testtest');
     // });
 
-    // // Basic
     // it('Required object parameter with interface - optional parameter', () => {
 
     //     interface IMyObject {
@@ -63,7 +59,6 @@ describe('Interfaces - introduction', () => {
     //     expect(getLabel(myObj2)).to.equal('test');
     // });
 
-    // // Basic
     // it('Required object parameter with interface - with extenstion', () => {
 
     //     interface IMyObject {
@@ -83,7 +78,6 @@ describe('Interfaces - introduction', () => {
     //     expect(getLabel(myObj2)).to.equal('test');
     // });
 
-    // // Intermediate
     // it('Required object parameter with interface - index signatures', () => {
 
     //     interface IMyObject {
@@ -100,7 +94,6 @@ describe('Interfaces - introduction', () => {
     //     expect(getLabel(myObj)).to.equal('pre-test');
     // });
 
-    // // Intermediate - exercise
     // it('Required object parameter with interface - exercise with index signatures', () => {
 
     //     interface IMyFn {

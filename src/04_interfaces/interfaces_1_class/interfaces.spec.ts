@@ -2,7 +2,6 @@ import { expect } from 'chai';
 
 describe('Interfaces - classes', () => {
 
-    // // Basic
     // it('Class implementing interface', () => {
 
     //     interface IUser {
@@ -18,7 +17,6 @@ describe('Interfaces - classes', () => {
     //     expect(new User().login("user1", "password1")).to.equal(true);
     // });
 
-    // // Basic
     // it('Class inplementing two interfaces', () => {
 
     //     interface IUser {
@@ -39,7 +37,6 @@ describe('Interfaces - classes', () => {
     //     expect(new User().isLogged).to.equal(false);
     // });
 
-    // // Intermediate
     // it('Constructor builder with interface', () => {
 
     //     interface ComesFromString {
