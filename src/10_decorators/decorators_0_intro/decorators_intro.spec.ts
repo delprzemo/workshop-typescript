@@ -58,7 +58,6 @@ describe('Decorators - introduction', () => {
     // });
 
 
-    // Advanced
     // it('Custom constructor decorator', () => {
 
     //     /* Exercise - create classDecorator that will change value of hello property */

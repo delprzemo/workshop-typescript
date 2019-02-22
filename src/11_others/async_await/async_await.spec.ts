@@ -39,7 +39,6 @@ describe('Async / await', () => {
     //     expect(result).to.equal(10);
     // });
 
-    // // Intermediate
     // it('Exmaple with async/await and catch error', async function() { 
 
     //     let getCustomerAge = /*Exercise - async method with catch error*/

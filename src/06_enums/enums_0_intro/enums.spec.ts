@@ -2,7 +2,6 @@ import { expect } from 'chai';
 
 describe('Enums - introduction', () => {
 
-    // // Basic
     // it('Simple enum', () => {
 
     //     /*Exercise - create Direction enum*/
