@@ -203,9 +203,6 @@ describe('Types - introduction', () => {
     // })
 
     // it('Conditional Types - advanced sample', () => {
-    //     type FunctionPropertyNames<T> = { [K in keyof T]: T[K] extends Function ? K : never }[keyof T];
-    //     type Key<T> = { [K in keyof T]: K }[keyof T];
-
 
     //     interface Part {
     //         id: number;
