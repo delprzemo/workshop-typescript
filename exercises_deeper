@@ -73,6 +73,7 @@ Exercise 1: Extend list:
 Exercise 2: Create Tree handler:
     - first define Tree type with value and child declaration. Sample usage- let family: Tree<string> = {value: "John", child: {value: "Henry", child: null}}
     - create Tree class with
+        - tree can have max 3 nodes
         - constructor (private tree: Tree<T> = null)
         - 'pushElement' method to add next child / first element - each element can have one child and one parent only. Tree should have max 3 nodes
         - 'getTree' which will return tree
