@@ -34,13 +34,13 @@ describe('Class - constructor and function', () => {
     //     expect(greeter.greet()).to.equal(/*Exercise*/);
     // });
 
-    // it('Optional constructor parameter', () => {
-    //     var greeter = new NewGreeter('');
-    //     var greeter2 = new NewGreeter('friend')
+    it('Optional constructor parameter', () => {
+        var greeter = new NewGreeter('');
+        var greeter2 = new NewGreeter('friend')
 
-    //     expect(greeter.greet()).to.equal(/*Exercise*/);
-    //     expect(greeter2.greet()).to.equal(/*Exercise*/);
-    // });
+        // expect(greeter.greet()).to.equal(/*Exercise*/);
+        // expect(greeter2.greet()).to.equal(/*Exercise*/);
+    });
 
     it('Private properties hacking', () => {
         var greeter = new NewGreeter('Test');
