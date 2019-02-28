@@ -44,78 +44,78 @@ describe('Variables var, let, const', () => {
     //     // exercise - change name and numLives for kitty
     // });
 
-    // it('var-scoping', () => {
-    //     function f(shouldInitialize: boolean) {
-    //         if (shouldInitialize) {
-    //             var x = 10;
-    //         }
+    it('var-scoping', () => {
+        function f(shouldInitialize: boolean) {
+            if (shouldInitialize) {
+                var x = 10;
+            }
         
-    //         return x;
-    //     }
+            return x;
+        }
 
-    //     expect(f(true)).to.equal(/*exercise*/);
-    //     expect(f(false)).to.equal(/*exercise*/);
-    // });
+        expect(f(true)).to.equal(10);
+        expect(f(false)).to.equal(undefined);
+    });
 
-    // it('var-scoping iteration', () => {
-    //     function f() {
-    //         for(var i = 0; i < 10; i++) {
-    //             for(var i = 0; i < 10; i++) {
-    //             }
+    it('var-scoping iteration', () => {
+        function f() {
+            for(var i = 0; i < 10; i++) {
+                for(var i = 0; i < 10; i++) {
+                }
 
-    //             if(i == 2) return i;
-    //         }
-    //     }
+                if(i == 2) return i;
+            }
+        }
 
-    //     expect(f()).to.equal(/*exercise*/);
-    // });
+        expect(f()).to.equal(undefined);
+    });
 
-    // it('let-scoping iteration', () => {
-    //     function f() {
-    //         for(let i = 0; i < 10; i++) {
+    it('let-scoping iteration', () => {
+        function f() {
+            for(let i = 0; i < 10; i++) {
 
-    //             for(let i = 0; i < 10; i++) {
+                for(let i = 0; i < 10; i++) {
 
-    //             }
+                }
 
-    //             if(i == 2) return i;
-    //         }
-    //     }
+                if(i == 2) return i;
+            }
+        }
 
-    //     expect(f()).to.equal(/*exercise*/);
-    // });
+        expect(f()).to.equal(2);
+    });
 
-    // it('var capturing quirk', (done) => {
-    //     var result: number[] = [];
-    //     function f() {
-    //         for (var i = 0; i < 10; i++) {
-    //             setTimeout(function() { result.push(i) }, 10 * i);
-    //         }
-    //     }
+    it('var capturing quirk', (done) => {
+        var result: number[] = [];
+        function f() {
+            for (var i = 0; i < 10; i++) {
+                setTimeout(function() { result.push(i) }, 10 * i);
+            }
+        }
 
-    //     f();
+        f();
 
-    //     setTimeout(()=>{
-    //         expect(result[0]).to.equal(/*exercise*/);
-    //         expect(result[9]).to.equal(/*exercise*/);
-    //         done();
-    //     }, 200);
-    // });
+        setTimeout(()=>{
+            expect(result[0]).to.equal(10);
+            expect(result[9]).to.equal(10);
+            done();
+        }, 200);
+    });
 
-    // it('let capturing quirk', (done) => {
-    //     var result: number[] = [];
-    //     function f() {
-    //         for (let i = 0; i < 10; i++) {
-    //             setTimeout(function() { result.push(i) }, 10 * i);
-    //         }
-    //     }
+    it('let capturing quirk', (done) => {
+        var result: number[] = [];
+        function f() {
+            for (let i = 0; i < 10; i++) {
+                setTimeout(function() { result.push(i) }, 10 * i);
+            }
+        }
 
-    //     f();
+        f();
 
-    //     setTimeout(()=>{
-    //         expect(result[0]).to.equal(/*exercise*/);
-    //         expect(result[9]).to.equal(/*exercise*/);
-    //         done();
-    //     }, 200);
-    // });
+        setTimeout(()=>{
+            expect(result[0]).to.equal(0);
+            expect(result[9]).to.equal(9);
+            done();
+        }, 200);
+    });
 });

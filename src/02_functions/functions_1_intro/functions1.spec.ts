@@ -45,21 +45,21 @@ describe('Functions - introduction', () => {
     //     expect(increaseZ()).to.equal(/*exercise*/);
     // });
 
-    // it('Rest parameters', () => {
-    //     function buildName(firstName: string, ...restOfName: string[]) {
-    //         return firstName + " " + restOfName.join(" ");
-    //     }
+    it('Rest parameters', () => {
+        function buildName(firstName: string, ...restOfName: string[]) {
+            return firstName + " " + restOfName.join(" ");
+        }
         
-    //     let employeeName = buildName(/*exercise*/);
+        let employeeName = buildName('Joseph', 'Samuel', 'Lucas', 'MacKinzie');
 
-    //     expect(employeeName).to.equal("Joseph Samuel Lucas MacKinzie");
-    // });
+        expect(employeeName).to.equal("Joseph Samuel Lucas MacKinzie");
+    });
 
-    // it('Writing the function type', () => {
-    //     let sum: (x: number, y: number) => number;
+    it('Writing the function type', () => {
+        let sum: (x: number, y: number) => number;
             
-    //     /*exercise - write sum function*/
+        sum = function(x: number, y:number) { return x + y}
 
-    //     expect(sum(1, 2)).to.equal(3);
-    // });
+        expect(sum(1, 2)).to.equal(3);
+    });
 });

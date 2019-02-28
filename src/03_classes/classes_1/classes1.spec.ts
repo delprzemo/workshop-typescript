@@ -42,11 +42,11 @@ describe('Class - constructor and function', () => {
     //     expect(greeter2.greet()).to.equal(/*Exercise*/);
     // });
 
-    // it('Private properties hacking', () => {
-    //     var greeter = new NewGreeter('Test');
+    it('Private properties hacking', () => {
+        var greeter = new NewGreeter('Test');
 
-    //     expect(/*Exercise*/).to.equal('Test');
-    //     expect(/*Exercise*/).to.equal('Secret Greet');
-    // });
+        expect(eval('greeter.greeting')).to.equal('Test');
+        expect(eval('greeter.secretGreet()')).to.equal('Secret Greet');
+    });
 
 });
