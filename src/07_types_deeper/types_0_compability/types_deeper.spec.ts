@@ -2,19 +2,21 @@ import { expect } from 'chai';
 
 describe('Types deeper', () => {
 
-    // it('Compability - playground', () => {
+    it('Compability - playground', () => {
 
-    //     interface Named {
-    //         name: string;  
-    //     }
+        interface Named {
+            name: string;  
+        }
         
-    //     /*Exercise - Create Person class that will not implement Named interface*/
+        class Person {
+            constructor(public name: string = 'Test') {}
+        }
         
-    //     let p: Named;
-    //     p = new Person(); 
+        let p: Named;
+        p = new Person(); 
 
-    //     expect(p.name).to.equal('Test');
-    // });
+        expect(p.name).to.equal('Test');
+    });
 
     // it('Compability - interface check', () => {
 

@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import { stringify } from 'querystring';
 
 describe('Generics - introduction', () => {
 
@@ -27,50 +28,54 @@ describe('Generics - introduction', () => {
     // });
 
 
-    // it('Interface with two generics - exercise', () => {
+    it('Interface with two generics - exercise', () => {
 
-    //     interface IArgOperations {
-    //         joinToObject: /*Exercise*/
-    //     }
+        interface IArgOperations {
+            joinToObject: <T, Y>(arg:T, arg2: Y) => {arg: T, arg2: Y}
+        }
 
-    //     class ArgOperations implements IArgOperations {
+        class ArgOperations implements IArgOperations {
 
-    //         joinToObject = /*Exercise - should build object from two parameters with generic types*/
-    //     }
+            joinToObject = <T, Y>(arg:T, arg2: Y) => {
+                return {arg: arg, arg2: arg2}
+            }
+        }
 
-    //     var argOperations = new ArgOperations();
-    //     var results = argOperations.joinToObject('Test', 2);
+        var argOperations = new ArgOperations();
+        var results = argOperations.joinToObject('Test', 2);
 
-    //     expect(results.arg).to.equal('Test');
-    //     expect(results.arg2).to.equal(2);
-    // });
+        expect(results.arg).to.equal('Test');
+        expect(results.arg2).to.equal(2);
+    });
 
-    // it('Interface with generic arguments - exercise', () => {
-    //     interface IArgOperations {
-    //         mergeParametersToArray: /*Exercise*/
-    //     }
+    it('Interface with generic arguments - exercise', () => {
+        interface IArgOperations {
+            mergeParametersToArray: <T>(...parms: T[]) => T[]
+        }
 
-    //     class ArgOperations implements IArgOperations {
-    //         mergeParametersToArray = /*Exercise - should build array from any quantity of parameters, bit all must be same type*/
+        class ArgOperations implements IArgOperations {
+            mergeParametersToArray = <T>(...parms: T[]) => {return parms};
             
-    //     }
+        }
 
-    //     var argOperations = new ArgOperations();
+        var argOperations = new ArgOperations();
 
-    //     expect(argOperations.mergeParametersToArray('Test', 'Test2')).to.deep.equal(['Test', 'Test2']);
-    //     expect(argOperations.mergeParametersToArray(2, 3)).to.deep.equal([2, 3]);
-    // });
+        expect(argOperations.mergeParametersToArray('Test', 'Test2')).to.deep.equal(['Test', 'Test2']);
+        expect(argOperations.mergeParametersToArray(2, 3)).to.deep.equal([2, 3]);
+    });
 
 
-    // it('Generic extending interface', () => {
+    it('Generic extending interface', () => {
 
-    //     /*Exercise - create ILengthwise interface*/
+        interface ILengthwise {
+            length: number;
+        }
         
-    //     function getLength<T extends ILengthwise>(arg: T): number {
-    //         return arg.length;
-    //     }
+        function getLength<T extends ILengthwise>(arg: T): number {
+            return arg.length;
+        }
 
 
-    //     expect(getLength('Test')).to.equal(4); // (change it to 2222)
-    // });
+        expect(getLength("Test")).to.equal(4); // (change it to 2222)
+    });
 });
