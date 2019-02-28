@@ -18,21 +18,21 @@ describe('Types deeper', () => {
         expect(p.name).to.equal('Test');
     });
 
-    // it('Compability - interface check', () => {
+    it('Compability - interface check', () => {
 
-    //     interface Named {
-    //         name: string;
-    //     }
+        interface Named {
+            name: string;
+        }
         
-    //     let y = { /*Exercise*/ };
+        let y = { name: "Alice", location: 'Seattle' };
 
-    //     let x: Named = y;
-    //     //x.location = 'Test';            //uncomment to check
-    //     //y = x;                          //uncomment to check
+        let x: Named = y;
+        //x.location = 'Test';            //uncomment to check
+        //y = x;                          //uncomment to check
 
-    //     expect(x.name).to.equal('Alice');
-    //     expect(x['location']).to.equal("Seattle");
-    // });
+        expect(x.name).to.equal('Alice');
+        expect(x['location']).to.equal("Seattle");
+    });
 
 });
 

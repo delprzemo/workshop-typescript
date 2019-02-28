@@ -2,73 +2,76 @@ import { expect } from 'chai';
 
 describe('Types - introduction', () => {
 
-    // it('Intersection types', () => {
+    it('Intersection types', () => {
 
-    //     function extend<T, U>(first: T, second: U): /*Exercise - fill type*/ {
-    //         /*Exercise fill body*/
-    //     }
+        function extend<T, U>(first: T, second: U): T & U {
+            return {...first, ...second};
+        }
 
-    //     class Person {
-    //         name = 'PersonName';
-    //     }
+        class Person {
+            name = 'PersonName';
+        }
 
-    //     class User {
-    //         login = 'UserLogin';
-    //     }
+        class User {
+            login = 'UserLogin';
+        }
 
-    //     expect(extend(new Person(), new User()).name).to.equal('PersonName');
-    //     expect(extend(new Person(), new User()).login).to.equal('UserLogin');
-    // });
+        expect(extend(new Person(), new User()).name).to.equal('PersonName');
+        expect(extend(new Person(), new User()).login).to.equal('UserLogin');
+    });
 
-    // it('Union types', () => {
+    it('Union types', () => {
 
-    //     function displayPersonAge(/*Exercise*/) : /*Exercise*/ {
-    //         /*Exercise*/
-    //     }
+        function displayPersonAge(name: string | undefined, age: number | string) : string | boolean {
+            if(name === undefined) return false;
+            return name + ": " + age;
+        }
 
-    //     expect(displayPersonAge('Tom', 30)).to.equal('Tom: 30');
-    //     expect(displayPersonAge('Angela', "28")).to.equal('Angela: 28');
-    //     expect(displayPersonAge(undefined, "28")).to.equal(false);
+        expect(displayPersonAge('Tom', 30)).to.equal('Tom: 30');
+        expect(displayPersonAge('Angela', "28")).to.equal('Angela: 28');
+        expect(displayPersonAge(undefined, "28")).to.equal(false);
 
-    // });
+    });
 
 
-    // it('Custom Type guards with as', () => {
+    it('Custom Type guards with as', () => {
 
-    //     /*Exercise - create isNumber function - test two types: boolean and type guard*/
+        let isNumber = (val: any): val is number => {
+            return ((<number>val).toPrecision !== undefined);
+        }
 
-    //     let x = 10;
-    //     if(isNumber(x)) {
-    //         expect(x.toPrecision).not.to.equal(undefined);
-    //     } else {
-    //         expect(x['toPrecision']).to.equal(undefined);
-    //     }
-    // });
+        let x = {};
+        if(isNumber(x)) {
+            expect(x.toPrecision).not.to.equal(undefined);
+        } else {
+            expect(x['toPrecision']).to.equal(undefined);
+        }
+    });
 
-    // it('Type guards with typeof', () => {
-    //     let x = 10;
-    //     if(typeof x === "number") {
-    //         expect(x.toPrecision).not.to.equal(undefined);
-    //     } else {
-    //         expect(x['toPrecision']).to.equal(undefined);
-    //     }
-    // });
+    it('Type guards with typeof', () => {
+        let x = {};
+        if(typeof x === "number") {
+            expect(x.toPrecision).not.to.equal(undefined);
+        } else {
+            expect(x['toPrecision']).to.equal(undefined);
+        }
+    });
 
-    // it('Type guards with instanceof', () => {
-    //     class Cat {
-    //         move() {
+    it('Type guards with instanceof', () => {
+        class Cat {
+            move() {
 
-    //         }
-    //     }
+            }
+        }
 
-    //     let cat = new Cat();
+        let cat = new Cat();
 
-    //     if(cat instanceof Cat) {
-    //         expect(cat.move).not.to.equal(undefined);
-    //     } else {
-    //         expect(cat['move']).to.equal(undefined);
-    //     }
-    // });
+        if(cat instanceof Cat) {
+            expect(cat.move).not.to.equal(undefined);
+        } else {
+            expect(cat['move']).to.equal(undefined);
+        }
+    });
 
     // it('Nullable type - string', () => {
     //     let sn: string | null = "bar";
