@@ -228,8 +228,11 @@ describe('Types - introduction', () => {
     //     expect(value).to.equal('b');
     // })
 
+    // it('My union types type', () => {
+    //     /* Exercise - create MyUnionTypes type */
 
-        
-    
+    //     let myValue : MyUnionTypes<[number, string, boolean]>;  // it should be type "number | string | boolean" for this case
+    // })
+
 });
 
