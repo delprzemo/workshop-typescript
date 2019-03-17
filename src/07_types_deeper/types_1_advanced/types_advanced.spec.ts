@@ -2,121 +2,116 @@ import { expect } from 'chai';
 
 describe('Types - introduction', () => {
 
-    it('Intersection types', () => {
+    // it('Intersection types', () => {
 
-        function extend<T, U>(first: T, second: U): T & U {
-            return {...first, ...second};
-        }
+    //     function extend<T, U>(first: T, second: U): /*Exercise - fill type*/ {
+    //         /*Exercise fill body*/
+    //     }
 
-        class Person {
-            name = 'PersonName';
-        }
+    //     class Person {
+    //         name = 'PersonName';
+    //     }
 
-        class User {
-            login = 'UserLogin';
-        }
+    //     class User {
+    //         login = 'UserLogin';
+    //     }
 
-        expect(extend(new Person(), new User()).name).to.equal('PersonName');
-        expect(extend(new Person(), new User()).login).to.equal('UserLogin');
-    });
+    //     expect(extend(new Person(), new User()).name).to.equal('PersonName');
+    //     expect(extend(new Person(), new User()).login).to.equal('UserLogin');
+    // });
 
-    it('Union types', () => {
+    // it('Union types', () => {
 
-        function displayPersonAge(name: string | undefined, age: number | string) : string | boolean {
-            if(name === undefined) return false;
-            return name + ": " + age;
-        }
+    //     function displayPersonAge(/*Exercise*/) : /*Exercise*/ {
+    //         /*Exercise*/
+    //     }
 
-        expect(displayPersonAge('Tom', 30)).to.equal('Tom: 30');
-        expect(displayPersonAge('Angela', "28")).to.equal('Angela: 28');
-        expect(displayPersonAge(undefined, "28")).to.equal(false);
+    //     expect(displayPersonAge('Tom', 30)).to.equal('Tom: 30');
+    //     expect(displayPersonAge('Angela', "28")).to.equal('Angela: 28');
+    //     expect(displayPersonAge(undefined, "28")).to.equal(false);
 
-    });
+    // });
 
 
-    it('Custom Type guards with as', () => {
+    // it('Custom Type guards with as', () => {
 
-        let isNumber = (val: any): val is number => {
-            return ((<number>val).toPrecision !== undefined);
-        }
+    //     /*Exercise - create isNumber function - test two types: boolean and type guard*/
 
-        let x = {};
-        if(isNumber(x)) {
-            expect(x.toPrecision).not.to.equal(undefined);
-        } else {
-            expect(x['toPrecision']).to.equal(undefined);
-        }
-    });
+    //     let x = 10;
+    //     if(isNumber(x)) {
+    //         expect(x.toPrecision).not.to.equal(undefined);
+    //     } else {
+    //         expect(x['toPrecision']).to.equal(undefined);
+    //     }
+    // });
 
-    it('Type guards with typeof', () => {
-        let x = {};
-        if(typeof x === "number") {
-            expect(x.toPrecision).not.to.equal(undefined);
-        } else {
-            expect(x['toPrecision']).to.equal(undefined);
-        }
-    });
+    // it('Type guards with typeof', () => {
+    //     let x = 10;
+    //     if(typeof x === "number") {
+    //         expect(x.toPrecision).not.to.equal(undefined);
+    //     } else {
+    //         expect(x['toPrecision']).to.equal(undefined);
+    //     }
+    // });
 
-    it('Type guards with instanceof', () => {
-        class Cat {
-            move() {
+    // it('Type guards with instanceof', () => {
+    //     class Cat {
+    //         move() {
 
-            }
-        }
+    //         }
+    //     }
 
-        let cat = new Cat();
+    //     let cat = new Cat();
 
-        if(cat instanceof Cat) {
-            expect(cat.move).not.to.equal(undefined);
-        } else {
-            expect(cat['move']).to.equal(undefined);
-        }
-    });
+    //     if(cat instanceof Cat) {
+    //         expect(cat.move).not.to.equal(undefined);
+    //     } else {
+    //         expect(cat['move']).to.equal(undefined);
+    //     }
+    // });
 
-    it('Nullable type - string', () => {
-        let sn: string | null = "bar";
-        sn = undefined;
-        sn = null;
+    // it('Nullable type - string', () => {
+    //     let sn: string | null = "bar";
+    //     sn = undefined;
+    //     sn = null;
 
-        expect(sn).to.equal(null);
-    });
+    //     expect(sn).to.equal(/*Exercise*/);
+    // });
 
     
-    it('Nullable return type', () => {
-        function valueOfDefault(par: string | null ) {
-            return par || "default";
-        }
+    // it('Nullable return type', () => {
+    //     /* Exercise - create valueOfDefault function */
 
-        expect(valueOfDefault('Test')).to.equal('Test');
-        expect(valueOfDefault(null)).to.equal('default');
-        expect(valueOfDefault(undefined)).to.equal('default');
-    });
+    //     expect(valueOfDefault('Test')).to.equal('Test');
+    //     expect(valueOfDefault(null)).to.equal('default');
+    //     expect(valueOfDefault(undefined)).to.equal('default');
+    // });
 
     // //--------------------------------------------------Exercise 1------------------------------------------------------
 
-    it('Type Aliases', () => {
-        type Tree<T> = T & {parent: Tree<T>}
+    // it('Type Aliases', () => {
+    //     type Tree<T> = /*Exercise - implement Tree type which will contain parent property and other properties from T*/
 
-        class Node {
-            name: string;
-        }
+    //     class Node {
+    //         name: string;
+    //     }
 
-        var node: Tree<Node> = {name: "Test", parent: {name: "ParentTest", parent: null}};
+    //     var node: Tree<Node> = {name: "Test", parent: {name: "ParentTest", parent: null}};
 
-        expect(node.name).to.equal("Test");
-        expect(node.parent.name).to.equal("ParentTest");
-    })
+    //     expect(node.name).to.equal("Test");
+    //     expect(node.parent.name).to.equal("ParentTest");
+    // })
 
-    it('Literal type', () => {
-        type Choise = 'A' | 'B' | 'C';
+    // it('Literal type', () => {
+    //     type Choise = /*Exercise - implement chose type which will allow only A,B,C,D*/
 
-        function getChoise(choise: Choise) {
-            return choise;
-        }
+    //     function getChoise(choise: Choise) {
+    //         return choise;
+    //     }
 
-        expect(getChoise("A")).to.equal("A");
-        //expect(getChoise("E")).to.equal("E");  // this should throw error
-    })
+    //     expect(getChoise("A")).to.equal("A");
+    //     //expect(getChoise("E")).to.equal("E");  // this should throw error
+    // })
 
     // it('Polymorphic this types', () => {
     //     class BasicCalculator {
@@ -144,90 +139,84 @@ describe('Types - introduction', () => {
     // })
 
 
-    it('Index types', () => {
+    // it('Index types', () => {
 
-        /* Exercise - Implement pluck funciton, which takes an array of property names and object, and returns an array containing the property value of object.
+    //     /* Exercise - Implement pluck funciton, which takes an array of property names and object, and returns an array containing the property value of object.
         
-        For example:
-        pluck(person, ['name', 'age']) // -> ['Jarid', 35]
+    //     For example:
+    //     pluck(person, ['name', 'age']) // -> ['Jarid', 35]
 
-        Important - disallow type unexisting property for object for example pluck(person, ['name', '123dfsa']). Declare return type
-        */
-
-       function pluck<T, K extends keyof T>(o: T, names: K[]): T[K][] {
-            return names.map(n => o[n]);
-        }
-    
+    //     Important - disallow type unexisting property for object for example pluck(person, ['name', '123dfsa']). Declare return type
+    //     */
         
-        interface Person {
-            name: string;
-            age: number;
-        }
-        let person: Person = {
-            name: 'Jarid',
-            age: 35
-        };
+    //     interface Person {
+    //         name: string;
+    //         age: number;
+    //     }
+    //     let person: Person = {
+    //         name: 'Jarid',
+    //         age: 35
+    //     };
 
-        let result1: string[] = pluck(person, ['name']); // change name to name2 should throw error
-        let result2: (string | number)[] = pluck(person, ['name', 'age']); 
+    //     let result1: string[] = pluck(person, ['name']); // change name to name2 should throw error
+    //     let result2: (string | number)[] = pluck(person, ['name', 'age']); 
 
-        expect(result1[0]).to.equal('Jarid');
-        expect(result2[0]).to.equal('Jarid');
-        expect(result2[1]).to.equal(35);
-    })
+    //     expect(result1[0]).to.equal('Jarid');
+    //     expect(result2[0]).to.equal('Jarid');
+    //     expect(result2[1]).to.equal(35);
+    // })
 
 
     // --------------------------------------------------Exercise 2------------------------------------------------------
 
 
-    it('Conditional Types', () => {
-        type NonNullable<T> = T extends null | undefined ? never : T;
+    // it('Conditional Types', () => {
+    //     type NonNullable<T> =  /* Exercise - implement nonNullable type that will not allow null or underfined */
 
 
-        let value: NonNullable<string>;
-        value = "Test";
+    //     let value: NonNullable<string>;
+    //     value = "Test";
 
-        let value2 : NonNullable<undefined>;
-        //value2 = undefined;// - should throw error
+    //     let value2 : NonNullable<undefined>;
+    //     // value2 = undefined; - should throw error
 
-        expect(value).to.equal("Test");
-        expect(typeof value2).to.equal('undefined');
-    })
+    //     expect(value).to.equal("Test");
+    //     expect(typeof value2).to.equal('undefined');
+    // })
 
-    it('Conditional Types - advanced sample', () => {
-        type Key<T> = {[K in keyof T]: K}[keyof T]
+    // it('Conditional Types - advanced sample', () => {
+    //     /* Exercise - create Key type */
 
-        interface Part {
-            id: number;
-            name: string;
-            subparts: Part[];
-            updatePart(newName: string): void;
-            anotherMethod(newName: string): void;
-        }
+
+    //     interface Part {
+    //         id: number;
+    //         name: string;
+    //         subparts: Part[];
+    //         updatePart(newName: string): void;
+    //         anotherMethod(newName: string): void;
+    //     }
         
-        let allNames: Key<Part>;
-        allNames = "name" // here should allow only id, name, subparts, updatePart or anotherMethod
+    //     let allNames: Key<Part>;
+    //     allNames = "name" // here should allow only id, name, subparts, updatePart or anotherMethod
 
-        expect(allNames).to.equal("name");
-    })
+    //     expect(allNames).to.equal("name");
+    // })
 
-    it('Conditional Types - advanced sample', () => {
+    // it('Conditional Types - advanced sample', () => {
 
-        type FunctionPropertyNames<T> = {[K in keyof T]: T[K] extends Function ? K : never}[keyof T]
-
-        interface Part {
-            id: number;
-            name: string;
-            subparts: Part[];
-            updatePart(newName: string): void;
-            anotherMethod(newName: string): void;
-        }
+    //     interface Part {
+    //         id: number;
+    //         name: string;
+    //         subparts: Part[];
+    //         updatePart(newName: string): void;
+    //         anotherMethod(newName: string): void;
+    //     }
         
-        let functionNames: FunctionPropertyNames<Part>;
-        functionNames = "updatePart";
+    //     let functionNames: FunctionPropertyNames<Part>;
+    //     functionNames = "updatePart";
 
-        expect(functionNames).to.equal("updatePart");
-    })
+    //     expect(functionNames).to.equal("updatePart");
+    // })
 
     // it('Predefined conditional types', () => {
 

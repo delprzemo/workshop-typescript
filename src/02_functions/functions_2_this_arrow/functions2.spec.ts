@@ -2,30 +2,30 @@ import { expect } from 'chai';
 
 describe('Functions - this and arrows functions', () => {
 
-    it('Simple this example', () => {
+    // it('Simple this example', () => {
 
-        let myObject = {
-            value: "test",
-            getValue: function() {
-                return this.value;
-            }
-        }
+    //     let myObject = {
+    //         value: "test",
+    //         getValue: function() {
+    //             /*exercise - write return statement*/
+    //         }
+    //     }
 
-        expect(myObject.getValue()).to.equal('test');
-    });
+    //     expect(myObject.getValue()).to.equal('test');
+    // });
 
-    it('This different scope behavior', () => {
+    // it('This different scope behavior', () => {
 
-        // exercise - fix error in myObject
-        let myObject = {
-            value: "test",
-            getValue: function() {
-                return () => {
-                    return this.value;
-                }
-            }
-        }
+    //     // exercise - fix error in myObject
+    //     let myObject = {
+    //         value: "test",
+    //         getValue: function() {
+    //             return function() {
+    //                 return this.value;
+    //             }
+    //         }
+    //     }
 
-        expect(myObject.getValue()()).to.equal('test');
-    });
+    //     expect(myObject.getValue()()).to.equal('test');
+    // });
 });

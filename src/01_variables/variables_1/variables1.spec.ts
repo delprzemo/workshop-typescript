@@ -26,22 +26,22 @@ describe('Variables dynamic types', () => {
     //     expect(typeof element3).to.equal(/*exercise*/);
     // });
 
-    it('value2- different value assignment twice', () => {
-        value2 = 1;
-        value2 = 'Test';
-        value2 = value2 / 2;
+    // it('value2- different value assignment twice', () => {
+    //     value2 = 1;
+    //     value2 = 'Test';
+    //     value2 = value2 / 2;
 
-        expect(typeof value2).to.equal("number");
-        // write assertion for value2 value
-    });
+    //     expect(typeof value2).to.equal(/*exercise*/);
+    //     // write assertion for value2 value
+    // });
 
-    it('value2- different value assignment - one more time', () => {
-        value2 = 1;
-        value2 = 'Test';
-        value2 = value2 / 2;
-        value2 = value2 + "2";
+    // it('value2- different value assignment - one more time', () => {
+    //     value2 = 1;
+    //     value2 = 'Test';
+    //     value2 = value2 / 2;
+    //     value2 = value2 + "2";
 
-        expect(typeof value2).to.equal("string");
-        expect(value2).to.equal("NaN2");
-    });
+    //     expect(typeof value2).to.equal(/*exercise*/);
+    //     expect(value2).to.equal(/*exercise*/);
+    // });
 });

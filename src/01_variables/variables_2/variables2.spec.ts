@@ -55,32 +55,32 @@ describe('Variables basic types', () => {
     //     expect(Color.Blue).to.equal(/*exercise*/);
     // })
 
-    it('Tuple', () => {
-        let x: [string, number];
-        x = ["hello", 10];
+    // it('Tuple', () => {
+    //     let x: [string, number];
+    //     x = ["hello", 10];
 
-        expect(typeof x).to.equal('object');
-        expect(typeof x[0]).to.equal('string');
-        expect(typeof x[1]).to.equal('number');
-    })
+    //     expect(typeof x).to.equal(/*exercise*/);
+    //     expect(typeof x[0]).to.equal(/*exercise*/);
+    //     expect(typeof x[1]).to.equal(/*exercise*/);
+    // })
 
-    it('Array of tuples', () => {
-        let x: [string, number][];
-        x = [["hello", 10], ['bye', 2]];
+    // it('Array of tuples', () => {
+    //     let x: [string, number][];
+    //     x = [["hello", 10], ['bye', 2]];
 
-        expect(typeof x).to.equal('object');
-        expect(typeof x[0]).to.equal('object');
-        expect(typeof x[1]).to.equal('object');
-        expect(typeof x[0][0]).to.equal('string');
-        expect(typeof x[0][1]).to.equal('number');
-    })
+    //     expect(typeof x).to.equal(/*exercise*/);
+    //     expect(typeof x[0]).to.equal(/*exercise*/);
+    //     expect(typeof x[1]).to.equal(/*exercise*/);
+    //     expect(typeof x[0][0]).to.equal(/*exercise*/);
+    //     expect(typeof x[0][1]).to.equal(/*exercise*/);
+    // })
 
-    it('Never', () => {
-        function fail(): never {
-            while(true) {}
-        }
+    // it('Never', () => {
+    //     function fail(): never {
+    //         /*exercise*/
+    //     }
 
-        expect(typeof fail).to.equal("function");
-    })
+    //     expect(typeof fail).to.equal("function");
+    // })
 
 });

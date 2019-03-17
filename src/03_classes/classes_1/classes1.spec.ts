@@ -34,19 +34,19 @@ describe('Class - constructor and function', () => {
     //     expect(greeter.greet()).to.equal(/*Exercise*/);
     // });
 
-    it('Optional constructor parameter', () => {
-        var greeter = new NewGreeter('');
-        var greeter2 = new NewGreeter('friend')
+    // it('Optional constructor parameter', () => {
+    //     var greeter = new NewGreeter('');
+    //     var greeter2 = new NewGreeter('friend')
 
-        // expect(greeter.greet()).to.equal(/*Exercise*/);
-        // expect(greeter2.greet()).to.equal(/*Exercise*/);
-    });
+    //     expect(greeter.greet()).to.equal(/*Exercise*/);
+    //     expect(greeter2.greet()).to.equal(/*Exercise*/);
+    // });
 
-    it('Private properties hacking', () => {
-        var greeter = new NewGreeter('Test');
+    // it('Private properties hacking', () => {
+    //     var greeter = new NewGreeter('Test');
 
-        expect(eval('greeter.greeting')).to.equal('Test');
-        expect(eval('greeter.secretGreet()')).to.equal('Secret Greet');
-    });
+    //     expect(/*Exercise*/).to.equal('Test');
+    //     expect(/*Exercise*/).to.equal('Secret Greet');
+    // });
 
 });
