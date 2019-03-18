@@ -10,7 +10,12 @@
         "noImplicitAny": true,
         "suppressImplicitAnyIndexErrors": true,
         "allowJs": true,
+        "baseUrl": ".",
+        "paths": {
+            "resolve-options": ["src/typings/resolve-options"]
+        }
         //"strictBindCallApply": true,
         //"strictNullChecks" : true
-    }
+    },
+
 }

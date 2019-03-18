@@ -1,7 +1,7 @@
 // import { expect } from 'chai';
 
 // // https://github.com/gulpjs/resolve-options
-// var createResolver = require('resolve-options');
+// import createResolver = require('resolve-options');
 
 
 // describe('Resolve options', () => {
