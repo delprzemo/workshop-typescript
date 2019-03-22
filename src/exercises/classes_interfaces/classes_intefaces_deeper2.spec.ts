@@ -40,7 +40,7 @@ class MyList implements IMyList {
     private list: string[];
     constructor (newList: MyList = null) {
         if (newList) 
-            this.list = newList.list 
+            this.list = newList.getAll(); 
         else 
             this.list = [];
     }
@@ -53,6 +53,7 @@ class MyList implements IMyList {
         this.list.push(value);
         return this;
     }
+    
     remove(value: string): IMyList {
         const index = this.list.findIndex(item => item === value);
         this.list.splice(index, 1);

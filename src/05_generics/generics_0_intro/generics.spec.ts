@@ -27,23 +27,23 @@ describe('Generics - introduction', () => {
     // });
 
 
-    // it('Interface with two generics - exercise', () => {
+    it('Interface with two generics - exercise', () => {
 
-    //     interface IArgOperations {
-    //         joinToObject: /*Exercise*/
-    //     }
+        interface IArgOperations {
+            joinToObject: <T,Y>(arg: T, arg2: Y) => {arg: T, arg2: Y}
+        }
 
-    //     class ArgOperations implements IArgOperations {
+        class ArgOperations implements IArgOperations {
 
-    //         joinToObject = /*Exercise - should build object from two parameters with generic types*/
-    //     }
+            joinToObject = <T,Y>(arg: T, arg2: Y) => {return {arg, arg2}}
+        }
 
-    //     var argOperations = new ArgOperations();
-    //     var results = argOperations.joinToObject('Test', 2);
+        var argOperations = new ArgOperations();
+        var results = argOperations.joinToObject('Test', 2);
 
-    //     expect(results.arg).to.equal('Test');
-    //     expect(results.arg2).to.equal(2);
-    // });
+        expect(results.arg).to.equal('Test');
+        expect(results.arg2).to.equal(2);
+    });
 
     // it('Interface with generic arguments - exercise', () => {
     //     interface IArgOperations {
