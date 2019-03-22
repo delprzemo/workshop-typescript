@@ -45,32 +45,33 @@ describe('Generics - introduction', () => {
         expect(results.arg2).to.equal(2);
     });
 
-    // it('Interface with generic arguments - exercise', () => {
-    //     interface IArgOperations {
-    //         mergeParametersToArray: /*Exercise*/
-    //     }
+    it('Interface with generic arguments - exercise', () => {
+        interface IArgOperations {
+            mergeParametersToArray: <T>(...elements: T[]) => T[]
+        }
 
-    //     class ArgOperations implements IArgOperations {
-    //         mergeParametersToArray = /*Exercise - should build array from any quantity of parameters, bit all must be same type*/
-            
-    //     }
+        class ArgOperations implements IArgOperations {
+            mergeParametersToArray = <T>(...elements: T[]) => {return elements}
+        }
 
-    //     var argOperations = new ArgOperations();
+        var argOperations = new ArgOperations();
 
-    //     expect(argOperations.mergeParametersToArray('Test', 'Test2')).to.deep.equal(['Test', 'Test2']);
-    //     expect(argOperations.mergeParametersToArray(2, 3)).to.deep.equal([2, 3]);
-    // });
+        expect(argOperations.mergeParametersToArray('Test', 'Test2')).to.deep.equal(['Test', 'Test2']);
+        expect(argOperations.mergeParametersToArray(2, 3)).to.deep.equal([2, 3]);
+    });
 
 
-    // it('Generic extending interface', () => {
+    it('Generic extending interface', () => {
 
-    //     /*Exercise - create ILengthwise interface*/
+        interface ILengthwise {
+            length: number;
+        }
         
-    //     function getLength<T extends ILengthwise>(arg: T): number {
-    //         return arg.length;
-    //     }
+        function getLength<T extends ILengthwise>(arg: T): number {
+            return arg.length;
+        }
 
 
-    //     expect(getLength('Test')).to.equal(4); // (change it to 2222)
-    // });
+        expect(getLength('Test')).to.equal(4); // (change it to 2222)
+    });
 });

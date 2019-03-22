@@ -47,37 +47,37 @@ describe('Enums - introduction', () => {
     //     expect(Direction.Right).to.equal("RIGHT");
     // });
 
-    // it('Enum constant and computed', () => {
+    it('Enum constant and computed', () => {
 
-    //     /*Exercise - make enum const*/
-    //     enum FileAccess {
-    //         None,
-    //         Read    = 1 << 1,
-    //         Write   = 1 << 2,
-    //         ReadWrite  = Read | Write,
-    //         G = "123".length,
-    //         F = Read + Write
-    //     }
+        /*Exercise - make enum const*/
+        enum FileAccess {
+            None,
+            Read    = 1 << 1,
+            Write   = 1 << 2,
+            ReadWrite  = Read | Write,
+            G = "123".length,
+            F = Read + Write
+        }
         
 
-    //     expect(FileAccess.None).to.equal(0);
-    //     expect(FileAccess.Read).to.equal(2);
-    //     expect(FileAccess.Write).to.equal(4);
-    //     expect(FileAccess.ReadWrite).to.equal(6);
-    //     expect(FileAccess.G).to.equal(3);
-    //     expect(FileAccess.F).to.equal(6);
-    // });
+        expect(FileAccess.None).to.equal(0);
+        expect(FileAccess.Read).to.equal(2);
+        expect(FileAccess.Write).to.equal(4);
+        expect(FileAccess.ReadWrite).to.equal(6);
+        expect(FileAccess.G).to.equal(3);
+        expect(FileAccess.F).to.equal(6);
+    });
 
-    // it('Reversed enum', () => {
+    it('Reversed enum', () => {
 
-    //     enum MyEnum {
-    //         A, 
-    //         B
-    //     }
+        enum MyEnum {
+            A, 
+            B
+        }
         
-    //     expect(/*Exercise*/).to.equal("A");
-    //     expect(/*Exercise*/).to.equal("B");
-    //     expect(/*Exercise*/).to.equal(1); 
-    // });
+        expect(MyEnum[MyEnum.A]).to.equal("A");
+        expect(MyEnum[MyEnum.B]).to.equal("B");
+        expect(MyEnum[MyEnum[MyEnum.B]]).to.equal(1); 
+    });
 });
 
