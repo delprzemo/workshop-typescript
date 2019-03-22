@@ -57,13 +57,13 @@ describe('Class - inheritance', () => {
     //     expect(cat.getLives()).to.equal(/*Exercise*/);
     // });
 
-    // it('Cat - Animal inheritance - accessors', () => {
-    //     var cat = new Cat();
-    //     cat.catDistance = 100;
-    //     cat.catDistance = 100;
-    //     cat.move(100);
+    it('Cat - Animal inheritance - accessors', () => {
+        var cat = new Cat();
+        cat.catDistance = 100;
+        cat.catDistance = 100;
+        cat.move(100);
 
-    //     expect(cat.catDistance).to.equal(/*Exercise*/);
-    // });
+        expect(cat.catDistance).to.equal(300);
+    });
 });
 

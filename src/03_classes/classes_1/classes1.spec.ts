@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 
 class Greeter {
-    greeting: string; // default it is public, not like in C# or Java
+    private greeting: string; // default it is public, not like in C# or Java
     constructor(message: string) {   // multiple constructor implementations are not allowed
         this.greeting = message;
     }
@@ -42,11 +42,11 @@ describe('Class - constructor and function', () => {
     //     expect(greeter2.greet()).to.equal(/*Exercise*/);
     // });
 
-    // it('Private properties hacking', () => {
-    //     var greeter = new NewGreeter('Test');
+    it('Private properties hacking', () => {
+        var greeter = new NewGreeter('Test');
 
-    //     expect(/*Exercise*/).to.equal('Test');
-    //     expect(/*Exercise*/).to.equal('Secret Greet');
-    // });
+        expect(greeter['greeting']).to.equal('Test');
+        expect(eval('greeter.secretGreet')()).to.equal('Secret Greet');
+    });
 
 });

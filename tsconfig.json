@@ -10,6 +10,7 @@
         "noImplicitAny": true,
         "suppressImplicitAnyIndexErrors": true,
         "allowJs": true,
+        "noImplicitThis": true
         //"strictBindCallApply": true,
         //"strictNullChecks" : true
     }

@@ -14,18 +14,19 @@ describe('Functions - this and arrows functions', () => {
     //     expect(myObject.getValue()).to.equal('test');
     // });
 
-    // it('This different scope behavior', () => {
+    it('This different scope behavior', () => {
 
-    //     // exercise - fix error in myObject
-    //     let myObject = {
-    //         value: "test",
-    //         getValue: function() {
-    //             return function() {
-    //                 return this.value;
-    //             }
-    //         }
-    //     }
+        // // exercise - fix error in myObject
+        // let myObject = {
+        //     value: "test",
+        //     getValue: function() {
+        //         return function() {
+        //             return this.value;
+        //         }
+        //     }
+        // }
 
-    //     expect(myObject.getValue()()).to.equal('test');
-    // });
+        // expect(myObject.getValue()()).to.equal('test');
+    });
 });
+
