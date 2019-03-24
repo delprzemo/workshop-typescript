@@ -19,6 +19,13 @@ describe('Types - introduction', () => {
     //     expect(extend(new Person(), new User()).name).to.equal('PersonName');
     //     expect(extend(new Person(), new User()).login).to.equal('UserLogin');
     // });
+    
+    // interface Document {
+    //   createElement(tagName: "div"): HTMLDivElement; // specialized
+    //   createElement(tagName: "span"): HTMLSpanElement; // specialized
+    //   createElement(tagName: "canvas"): HTMLCanvasElement; // specialized
+    //   createElement(tagName: string): HTMLElement; // non-specialized
+    // }
 
     // it('Union types', () => {
 
