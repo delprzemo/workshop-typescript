@@ -15,7 +15,6 @@ describe('Symbols', () => {
     //     let sampleClass = new SampleClass();
 
     //     expect(sampleClass[getClassNameSymbol]()).to.equal('C');
-    //     expect(sampleClass[getClassNameSymbol].name).to.equal('[ReturnC]');
     // });
 
     // it('Symbols - types', () => {
