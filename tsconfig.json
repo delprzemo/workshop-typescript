@@ -11,6 +11,14 @@
         "suppressImplicitAnyIndexErrors": true,
         "allowJs": true,
         "baseUrl": ".",
+        "lib": [   
+            "es2015.promise",
+            "dom",      
+            "es6",        
+            "es2015.generator",
+            "es2015.iterable",
+            "esnext.asynciterable"
+        ],
         "paths": {
             "resolve-options": ["src/typings/resolve-options"]
         }
