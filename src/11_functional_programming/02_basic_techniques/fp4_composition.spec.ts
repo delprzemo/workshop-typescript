@@ -7,59 +7,50 @@ describe('Functional programming - composition', () => {
     const substr = (s:string) => s.substr(1, 4);
     const getLength =  (s: string) => s.length;
 
-    // Intermediate
-    it('Simple example', () => {
-        const trimAndCapitalize = (s: string) => capitalize(trim(s));
-        const result = trimAndCapitalize("   hello world   ");
+    // it('Simple example', () => {
+    //     // exercise - create trimAndCapitalize function
+    //     const result = trimAndCapitalize("   hello world   ");
 
-        expect(result).to.equal("HELLO WORLD");
-    });
+    //     expect(result).to.equal("HELLO WORLD");
+    // });
 
-    // Intermediate
-    it('With only one type', () => {
+    // it('With only one type', () => {
 
-        const compose = <T>(f: (x: T) => T, g: (x: T)=> T) => (val: T) => f(g(val));
+    //     // exercise - create compose function with two function and only one type
 
-        const trimAndCapitalize = compose(trim, capitalize);
-        const result = trimAndCapitalize("   hello world   ");
+    //     const trimAndCapitalize = compose(trim, capitalize);
+    //     const result = trimAndCapitalize("   hello world   ");
 
-        expect(result).to.equal("HELLO WORLD");
-    });
+    //     expect(result).to.equal("HELLO WORLD");
+    // });
 
-    // Intermediate
-    it('Simple example with length', () => {
-        const trimAndGetLength = (s: string) => getLength(trim(s));
-        const result = trimAndGetLength("   hello world   ");
+    // it('Simple example with length', () => {
+    //     // exercise - create trimAndGetLength function
 
-        expect(result).to.equal(11);
-    });
+    //     const result = trimAndGetLength("   hello world   ");
 
-    // Intermediate
-    it('With different types', () => {
+    //     expect(result).to.equal(11);
+    // });
 
-        const compose = <T1, T2>(f: (x: T1) => T2, g: (x: T1) => T1) => (val: T1) => f(g(val));
+    // it('With different types', () => {
 
-        const trimAndCapitalize = compose(getLength, trim);
-        const result = trimAndCapitalize("   hello world   ");
+    //      // exercise - create compose function for trimAndLength
 
-        expect(result).to.equal(11);
-    });
+    //     const trimAndLength = compose(getLength, trim);
+    //     const result = trimAndLength("   hello world   ");
 
-    // Advanced
-    it('Compose many (with params)', () => {
+    //     expect(result).to.equal(11);
+    // });
 
-        const composeMany = <T>(...functions: Array<(arg: T) => T>) => 
-        (arg: T) => 
-            functions.reduceRight((prev, curr) => {
-                return curr(prev);
-            }, arg)
-        
+    // it('Compose many (with params)', () => {
 
-        const doLotOfStuff = composeMany(substr, trim, capitalize);
-        const result = doLotOfStuff("   hello world   ");
+    //     // exercise - create composeMany function which will compose any quantity of functions with same type
 
-        expect(result).to.equal("ELLO");
-    });
+    //     const doLotOfStuff = composeMany(substr, trim, capitalize);
+    //     const result = doLotOfStuff("   hello world   ");
+
+    //     expect(result).to.equal("ELLO");
+    // });
 
 });
 
