@@ -43,7 +43,8 @@ describe('Generics and enums- fundamentals exercise', () => {
         add (value: T): MyList<T>,
         remove (value: T): MyList<T>,
         first() : T,
-        getAll(): T[]
+        getAll(): T[];
+        where: (expression: filter<T>)=> MyList<T>
     }
 
     class MyList<T> implements IMyList<T> {
