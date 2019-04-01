@@ -95,3 +95,28 @@ Exercise 1:
 
 ---------------------------- Decorators -------------------------------------
 Exercise 1: Implement Route, HttpGet and HttpPost decorators to handle proper url and request type
+
+
+
+
+--------------------------------RxJs-----------------------------------------
+Exercise 1:
+Let's imagine that we are creating poor tweeter.
+We have two API methods:
+- getTweets()
+- getLikers(tweet)
+First we are fetching tweets and then likers basing on tweet 
+We would like to present it to user in this way:
+    TweetName1 LikerName1
+    TweetName1 LikerName2
+    ...
+    TweetName2 LikerName1
+    TweetName2 LikerName2
+    ...
+
+Let's assume that we have a function showLikers(arr) where arr is string array with value 
+for each line
+
+We have to handle Lazy-loading.
+
+Knowing that please handle with all tests in RxJs exercise
